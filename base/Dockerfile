@@ -68,6 +68,9 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python${PYTHON_VERSION} get-pip.py && \
     rm get-pip.py
 
+# RUN apt-get install python${PYTHON_VERSION} python${PYTHON_VERSION}-dev python${PYTHON_VERSION}-venv
+RUN apt-get update -qq && apt-get install -y python${PYTHON_VERSION}-venv python${PYTHON_VERSION}-dev
+
 
 # Install the latest Git
 RUN add-apt-repository ppa:git-core/ppa && apt-get update -qq && \
@@ -93,7 +96,7 @@ RUN pip install pandas plotly ipykernel git+https://$GH_TOKEN@github.com/quantim
 
 # Configure R to use the Posit Package Manager for tidyverse installation
 RUN echo 'options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))' >> /etc/R/Rprofile.site && \
-    R -e "install.packages(c('tidyverse','rmarkdown','renv','RTL','languageserver'))"
+    R -e "install.packages(c('tidyverse','rmarkdown','renv','RTL','languageserver','devtools'))"
 
 RUN pip install radian
 
