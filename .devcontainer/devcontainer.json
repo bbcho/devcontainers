@@ -18,6 +18,7 @@
         "python.testing.pytestEnabled": true,
         "python.formatting.provider": "black",
         "python.linting.mypyEnabled": true,
+        "python.defaultInterpreterPath": "/bin/python3.11",
         "python.linting.enabled": true
       }
     }
@@ -42,6 +43,8 @@
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
   "containerEnv": {
-    "EIA": "${localEnv:EIA}"
+    "EIA": "${localEnv:EIA}",
+    "PMVU": "${localEnv:PMVU}",
+    "PMVP": "${localEnv:PMVP}"
   }
 }
